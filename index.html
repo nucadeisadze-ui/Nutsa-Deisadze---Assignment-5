@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ka" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="ნუცა დეისაძე - Front-End დეველოპერის პორტფოლიო | Geolab Full-Stack Curriculum პროექტი">
+  <title>ნუცა დეისაძე | პორტფოლიო &amp; API ინტეგრაცია</title>
+
+  <!-- Google Fonts: Inter & Fira Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Custom CSS with Responsive Media Queries -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ==================== HEADER & RESPONSIVE NAVBAR ==================== -->
+  <header class="site-header" id="header">
+    <div class="nav-container">
+      <!-- ლოგო / ბრენდი -->
+      <a href="#" class="brand-logo" aria-label="მთავარი გვერდი">
+        <span class="logo-bracket">&lt;</span>ნუცა<span class="logo-dot">.</span>dev<span
+          class="logo-bracket">/&gt;</span>
+      </a>
+
+      <!-- Desktop ნავიგაცია -->
+      <nav class="desktop-nav" aria-label="ძირითადი ნავიგაცია">
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-link">ჩემ შესახებ</a></li>
+          <li><a href="#skills" class="nav-link">უნარები</a></li>
+          <li><a href="#projects" class="nav-link">პროექტები</a></li>
+          <li><a href="#team" class="nav-link nav-badge-link">თანამშრომლები <span class="api-pill">API</span></a></li>
+          <li><a href="#interactive" class="nav-link nav-badge-link">პოსტები &amp; Tasks <span
+                class="api-pill">API</span></a></li>
+          <li><a href="#contact" class="nav-link">კონტაქტი</a></li>
+        </ul>
+      </nav>
+
+      <!-- Desktop CTA ღილაკი -->
+      <div class="header-action">
+        <a href="#contact" class="btn btn-primary btn-sm">დამიკავშირდით</a>
+      </div>
+
+      <!-- Burger Menu ღილაკი (მობილურებისთვის) -->
+      <button id="burger-btn" class="burger-btn" type="button" aria-label="მენიუს გახსნა/დახურვა" aria-expanded="false"
+        aria-controls="mobile-nav">
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-nav" class="mobile-nav" aria-hidden="true">
+      <div class="mobile-nav-inner">
+        <ul class="mobile-nav-links">
+          <li><a href="#about" class="mobile-link">ჩემ შესახებ</a></li>
+          <li><a href="#skills" class="mobile-link">უნარები</a></li>
+          <li><a href="#projects" class="mobile-link">პროექტები</a></li>
+          <li>
+            <a href="#team" class="mobile-link flex-between">
+              <span>თანამშრომლები</span>
+              <span class="api-pill">/users API</span>
+            </a>
+          </li>
+          <li>
+            <a href="#interactive" class="mobile-link flex-between">
+              <span>პოსტები &amp; ამოცანები</span>
+              <span class="api-pill">/posts API</span>
+            </a>
+          </li>
+          <li><a href="#contact" class="mobile-link">კონტაქტი</a></li>
+        </ul>
+        <div class="mobile-nav-cta">
+          <a href="#contact" class="btn btn-primary btn-block">📧 მომწერეთ პირადში</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Backdrop Overlay -->
+  <div id="nav-overlay" class="nav-overlay" aria-hidden="true"></div>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span>ღია ვარ ახალი შემოთავაზებებისთვის</span>
+        </div>
+
+        <h1 class="hero-title">
+          გამარჯობა, მე ვარ <br>
+          <span class="text-gradient">ნუცა დეისაძე</span>
+        </h1>
+
+        <p class="hero-description">
+          Front-End დეველოპერი. ვქმნი თანამედროვე, ადაპტიურ, სემანტიკურ და REST API-ზე დაფუძნებულ ინტერაქტიულ
+          ვებ-აპლიკაციებს (Geolab Full-Stack Curriculum).
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">
+            <span>ჩემი ნამუშევრები</span>
+            <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd" />
+            </svg>
+          </a>
+          <a href="#team" class="btn btn-secondary">
+            <span>API მონაცემები (Team)</span>
+            <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-card">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Responsive UI</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">REST</span>
+            <span class="stat-label">Async/Await APIs</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">ES6+</span>
+            <span class="stat-label">Clean Vanilla JS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="card glass-card about-card">
+          <div class="section-badge">ინფორმაცია</div>
+          <h2 class="section-title">ჩემ შესახებ</h2>
+          <div class="about-content">
+            <p>
+              მოგესალმებით! მე ვარ ნუცა, დამწყები Front-End დეველოპერი. ჩემი მიზანია შევქმნა სუფთა, გამართული და
+              მომხმარებლისთვის მოსახერხებელი ვებ-გვერდები თანამედროვე სტანდარტების სრული დაცვით.
+            </p>
+            <p>
+              Geolab-ის კურიკულუმის ფარგლებში აქტიურად ვმუშაობ <strong class="text-accent">სემანტიკურ HTML5-ზე</strong>,
+              <strong class="text-accent">მოდულურ CSS3-სა და Media Queries-ზე</strong>, ასევე <strong
+                class="text-accent">JavaScript-ის ასინქრონულ არქიტექტურაზე (Fetch API, Promises, Async/Await)</strong>.
+            </p>
+          </div>
+
+          <div class="features-grid">
+            <div class="feature-item">
+              <div class="feature-icon">📱</div>
+              <div>
+                <h4 class="feature-title">Responsive Design</h4>
+                <p class="feature-desc">გამართული მუშაობა ნებისმიერი ეკრანის რეზოლუციაზე (Mobile, Tablet, Desktop).</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">⚡</div>
+              <div>
+                <h4 class="feature-title">API Integration</h4>
+                <p class="feature-desc">დინამიური მონაცემების მიღება და დამუშავება გარე REST API სერვისებიდან.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🛡️</div>
+              <div>
+                <h4 class="feature-title">სუფთა და სემანტიკური კოდი</h4>
+                <p class="feature-desc">W3C სტანდარტების დაცვა, SEO ოპტიმიზაცია და მაღალი ხელმისაწვდომობა
+                  (Accessibility).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-badge">ტექნოლოგიური სტეკი</span>
+          <h2 class="section-title">ტექნოლოგიები &amp; უნარები</h2>
+          <p class="section-subtitle">ინსტრუმენტები და ტექნოლოგიები, რომლებსაც ვიყენებ პროექტებში</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-icon">🌐</div>
+            <h3 class="skill-name">HTML5</h3>
+            <p class="skill-desc">სემანტიკური მარკირება, SEO სტრუქტურა და ვებ ხელმისაწვდომობა</p>
+            <span class="skill-tag">Semantic HTML</span>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">🎨</div>
+            <h3 class="skill-name">CSS3 &amp; Media Queries</h3>
+            <p class="skill-desc">Flexbox, CSS Grid, Custom Properties, Keyframe ანიმაციები &amp; Mobile-first</p>
+            <span class="skill-tag">Responsive Layouts</span>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">⚡</div>
+            <h3 class="skill-name">JavaScript (ES6+)</h3>
+            <p class="skill-desc">DOM Manipulation, Event Handling, Async/Await, Fetch API, Array Methods</p>
+            <span class="skill-tag">Modern Logic</span>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">🔗</div>
+            <h3 class="skill-name">REST APIs &amp; JSON</h3>
+            <p class="skill-desc">მონაცემთა გაცვლა, JSON დამუშავება, შეცდომების ვალიდაცია (Error Handling)</p>
+            <span class="skill-tag">Data Fetching</span>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">🐙</div>
+            <h3 class="skill-name">Git &amp; GitHub</h3>
+            <p class="skill-desc">ვერსიების კონტროლი, Branching, Commits და გუნდური რეპოზიტორიები</p>
+            <span class="skill-tag">Version Control</span>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">🛠️</div>
+            <h3 class="skill-name">DevTools &amp; Debugging</h3>
+            <p class="skill-desc">Chrome DevTools, Console დიაგნოსტიკა, Network Tab და ელემენტების ინსპექცია</p>
+            <span class="skill-tag">Browser Tools</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-badge">ნამუშევრები</span>
+          <h2 class="section-title">პორტფოლიო პროექტები</h2>
+          <p class="section-subtitle">სასწავლო და პრაქტიკული პროექტები Geolab-ის კურსის მიხედვით</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <article class="project-card">
+            <div class="project-header gradient-bg-1">
+              <span class="project-category">Front-End Portfolio</span>
+              <div class="project-badge">სრულად ადაპტიური</div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">პერსონალური პორტფოლიო საიტი</h3>
+              <p class="project-desc">
+                სრულყოფილი პორტფოლიო საიტი მობილური ბურგერ მენიუთი, გლუვი სქროლინგით და თანამედროვე მუქი ვიზუალით.
+              </p>
+              <div class="project-tags">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3 Variables</span>
+                <span class="tag">Media Queries</span>
+                <span class="tag">JavaScript</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card">
+            <div class="project-header gradient-bg-2">
+              <span class="project-category">API Integration</span>
+              <div class="project-badge">REST Service</div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">თანამშრომელთა &amp; მომხმარებელთა პორტალი</h3>
+              <p class="project-desc">
+                JSONPlaceholder API-დან მონაცემების ასინქრონული ჩამოტვირთვა (`/users`), ძებნა რეალურ დროში და დეტალური
+                ბარათები.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Fetch API</span>
+                <span class="tag">Async/Await</span>
+                <span class="tag">JSON</span>
+                <span class="tag">DOM Injection</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card">
+            <div class="project-header gradient-bg-3">
+              <span class="project-category">Interactive App</span>
+              <div class="project-badge">Dynamic State</div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">ინტერაქციული პოსტები &amp; Task მენეჯერი</h3>
+              <p class="project-desc">
+                პოსტების ფილტრაცია ავტორის მიხედვით, კომენტარების ნახვა მოდალურ ფანჯარაში და ამოცანების (`/todos`)
+                მართვა.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Interactive UI</span>
+                <span class="tag">Modal System</span>
+                <span class="tag">Event Listeners</span>
+                <span class="tag">Local State</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== REQUIREMENT 2: EMPLOYEES / TEAM SECTION ==================== -->
+    <section class="section team-section" id="team">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="inline-flex-center">
+            <span class="section-badge">მოთხოვნა 2 • API Integration</span>
+          </div>
+          <h2 class="section-title">თანამშრომლები &amp; ჩვენი გუნდი</h2>
+          <p class="section-subtitle">
+            მონაცემები დინამიურად იტვირთება
+            <a href="https://jsonplaceholder.typicode.com/users" target="_blank" rel="noopener noreferrer"
+              class="code-link">
+              jsonplaceholder.typicode.com/users
+            </a>
+            ენდფოინთიდან <code>async/await</code>-ისა და <code>fetch</code>-ის გამოყენებით.
+          </p>
+        </div>
+
+        <!-- Controls Toolbar (Search & Refresh) -->
+        <div class="api-toolbar glass-card">
+          <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                clip-rule="evenodd" />
+            </svg>
+            <input type="text" id="employee-search" placeholder="მოძებნეთ სახელით, მეილით ან კომპანიით..."
+              aria-label="თანამშრომლის ძებნა">
+          </div>
+
+          <div class="toolbar-actions">
+            <span id="employee-count-badge" class="count-badge">იტვირთება...</span>
+            <button id="refresh-employees-btn" class="btn btn-outline btn-sm" title="მონაცემების ხელახლა ჩამოტვირთვა">
+              <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
+                  clip-rule="evenodd" />
+              </svg>
+              <span>განახლება</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Dynamic Container for Employees -->
+        <div id="employees-container" class="employees-grid" aria-live="polite">
+          <!-- JS will inject dynamic employee cards or skeletons here -->
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== REQUIREMENT 3: ADDITIONAL JSONPLACEHOLDER FEATURE ==================== -->
+    <section class="section interactive-section" id="interactive">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="inline-flex-center">
+            <span class="section-badge">მოთხოვნა 3 • დამატებითი რესურსი</span>
+          </div>
+          <h2 class="section-title">ინტერაქციული სივრცე (Posts &amp; Tasks)</h2>
+          <p class="section-subtitle">
+            დამატებითი რესურსები JSONPlaceholder-დან: მომხმარებელთა პოსტები (<code>/posts</code>), კომენტარები
+            (<code>/comments</code>) და დავალებების მართვა (<code>/todos</code>).
+          </p>
+        </div>
+
+        <!-- Tab Switching Controls -->
+        <div class="tabs-control-wrapper">
+          <div class="tabs-nav" role="tablist">
+            <button class="tab-btn active" id="tab-posts-btn" role="tab" aria-selected="true"
+              aria-controls="posts-tab-content" data-tab="posts">
+              <span class="tab-icon">📰</span>
+              <span>ბლოგ პოსტები (/posts)</span>
+            </button>
+            <button class="tab-btn" id="tab-todos-btn" role="tab" aria-selected="false"
+              aria-controls="todos-tab-content" data-tab="todos">
+              <span class="tab-icon">📝</span>
+              <span>ამოცანების სია (/todos)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- TAB 1: POSTS -->
+        <div class="tab-content active" id="posts-tab-content" role="tabpanel" aria-labelledby="tab-posts-btn">
+          <!-- Posts Controls -->
+          <div class="posts-toolbar glass-card">
+            <div class="posts-filters">
+              <!-- Filter by Employee Dropdown -->
+              <div class="select-wrapper">
+                <label for="post-user-filter" class="screen-reader-text">გაფილტრეთ ავტორის მიხედვით</label>
+                <select id="post-user-filter" class="form-select">
+                  <option value="all">ყველა ავტორი (თანამშრომელი)</option>
+                  <!-- Populated dynamically with users from API -->
+                </select>
+              </div>
+
+              <!-- Search Posts Input -->
+              <div class="posts-search-box">
+                <input type="text" id="posts-search" placeholder="მოძებნეთ პოსტის სათაურით ან ტექსტით..."
+                  aria-label="პოსტების ძებნა">
+              </div>
+            </div>
+
+            <!-- Add New Post Button -->
+            <button id="open-new-post-modal-btn" class="btn btn-primary btn-sm">
+              <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                  clip-rule="evenodd" />
+              </svg>
+              <span>ახალი პოსტის დამატება</span>
+            </button>
+          </div>
+
+          <!-- Dynamic Posts Grid -->
+          <div id="posts-container" class="posts-grid" aria-live="polite">
+            <!-- Populated via JavaScript -->
+          </div>
+
+          <!-- Pagination / Load More Button -->
+          <div class="text-center mt-8" id="posts-pagination-wrapper">
+            <button id="load-more-posts-btn" class="btn btn-secondary">
+              <span>მეტის ჩატვირთვა</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- TAB 2: TODOS -->
+        <div class="tab-content" id="todos-tab-content" role="tabpanel" aria-labelledby="tab-todos-btn">
+          <div class="glass-card todos-container-card">
+            <!-- Quick Add Todo Form -->
+            <form id="add-todo-form" class="add-todo-form">
+              <input type="text" id="todo-input" class="form-input" placeholder="ჩაწერეთ ახალი დავალება..." required>
+              <button type="submit" class="btn btn-primary">
+                <span>დამატება</span>
+              </button>
+            </form>
+
+            <!-- Todo Filter Pills -->
+            <div class="todo-filter-pills">
+              <button class="pill-btn active" data-filter="all">ყველა (<span id="count-all-todos">0</span>)</button>
+              <button class="pill-btn" data-filter="pending">შესასრულებელი (<span
+                  id="count-pending-todos">0</span>)</button>
+              <button class="pill-btn" data-filter="completed">შესრულებული (<span
+                  id="count-completed-todos">0</span>)</button>
+            </div>
+
+            <!-- Dynamic Todo List -->
+            <ul id="todos-list" class="todos-list" aria-live="polite">
+              <!-- Dynamic Todo Items -->
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-badge">კავშირი</span>
+          <h2 class="section-title">დამიკავშირდით</h2>
+          <p class="section-subtitle">გაქვთ იდეა, ვაკანსია ან გსურთ თანამშრომლობა? მოხარული ვიქნები თქვენთან საუბრის.
+          </p>
+        </div>
+
+        <div class="contact-wrapper">
+          <div class="contact-card glass-card">
+            <h3 class="contact-card-title">საკონტაქტო ფორმა</h3>
+            <form id="contact-form" class="contact-form">
+              <div class="form-group">
+                <label for="contact-name">თქვენი სახელი *</label>
+                <input type="text" id="contact-name" class="form-input" placeholder="გიორგი მაისურაძე" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email">ელექტრონული ფოსტა *</label>
+                <input type="email" id="contact-email" class="form-input" placeholder="giorgi@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message">შეტყობინება *</label>
+                <textarea id="contact-message" class="form-input form-textarea" rows="4"
+                  placeholder="გამარჯობა, მსურს თქვენთან თანამშრომლობა..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">
+                <span>შეტყობინების გაგზავნა</span>
+                <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path
+                    d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                </svg>
+              </button>
+            </form>
+          </div>
+
+          <div class="contact-details glass-card">
+            <h3 class="contact-card-title">პირადი მონაცემები</h3>
+            <ul class="contact-info-list">
+              <li class="contact-info-item">
+                <span class="info-icon">📍</span>
+                <div>
+                  <span class="info-label">ადგილმდებარეობა</span>
+                  <p class="info-val">თბილისი, საქართველო</p>
+                </div>
+              </li>
+              <li class="contact-info-item">
+                <span class="info-icon">✉️</span>
+                <div>
+                  <span class="info-label">ელ. ფოსტა</span>
+                  <a href="mailto:nutsa.deisadze@example.com" class="info-link">nutsa.deisadze@example.com</a>
+                </div>
+              </li>
+              <li class="contact-info-item">
+                <span class="info-icon">🐙</span>
+                <div>
+                  <span class="info-label">GitHub</span>
+                  <a href="https://github.com/geolab-asanidze/full-stack-2" target="_blank" rel="noopener noreferrer"
+                    class="info-link">github.com/geolab-asanidze</a>
+                </div>
+              </li>
+              <li class="contact-info-item">
+                <span class="info-icon">🎓</span>
+                <div>
+                  <span class="info-label">კურსი / განათლება</span>
+                  <p class="info-val">Geolab Full-Stack Development</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <a href="#" class="brand-logo">
+          <span class="logo-bracket">&lt;</span>ნუცა<span class="logo-dot">.</span>dev<span
+            class="logo-bracket">/&gt;</span>
+        </a>
+        <p class="footer-text">
+          შექმნილია Geolab Full-Stack კურიკულუმის ფარგლებში • სუფთა HTML5, CSS3 Media Queries &amp; JavaScript REST API.
+        </p>
+      </div>
+
+      <div class="footer-right">
+        <p>&copy; <span id="current-year">2026</span> ნუცა დეისაძე. ყველა უფლება დაცულია.</p>
+        <a href="#hero" class="back-to-top-btn" title="გვერდის თავში დაბრუნება">
+          <span>ზემოთ ასვლა</span>
+          <svg class="icon-sm" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- 1. Post Details & Comments Modal -->
+  <div id="post-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-dialog glass-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-badge" id="modal-author-name">ავტორი</span>
+          <h3 class="modal-title" id="modal-post-title">პოსტის სათაური</h3>
+        </div>
+        <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="დახურვა">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <p class="modal-post-body" id="modal-post-body">პოსტის შინაარსი...</p>
+
+        <div class="comments-section">
+          <h4 class="comments-header">
+            <span>💬 კომენტარები</span>
+            <span class="comments-count" id="modal-comments-count">0</span>
+          </h4>
+          <div id="modal-comments-container" class="comments-list">
+            <!-- Populated via API fetch (/posts/{id}/comments) -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Create Post Modal -->
+  <div id="create-post-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-dialog glass-card">
+      <div class="modal-header">
+        <h3 class="modal-title">📝 ახალი პოსტის შექმნა</h3>
+        <button type="button" class="modal-close-btn" id="create-modal-close-btn" aria-label="დახურვა">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <form id="create-post-form" class="modal-form">
+          <div class="form-group">
+            <label for="new-post-author">აირჩიეთ თანამშრომელი (ავტორი) *</label>
+            <select id="new-post-author" class="form-select" required>
+              <!-- Populated dynamically -->
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="new-post-title">პოსტის სათაური *</label>
+            <input type="text" id="new-post-title" class="form-input" placeholder="მაგ: ახალი ვებ პროექტის დაწყება"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label for="new-post-body">პოსტის შინაარსი *</label>
+            <textarea id="new-post-body" class="form-input form-textarea" rows="4"
+              placeholder="დაწერეთ პოსტის აღწერა..." required></textarea>
+          </div>
+
+          <div class="modal-actions">
+            <button type="button" class="btn btn-outline" id="cancel-create-post-btn">გაუქმება</button>
+            <button type="submit" class="btn btn-primary">გამოქვეყნება (POST)</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container" class="toast-container" aria-live="assertive"></div>
+
+  <!-- External JavaScript Logic -->
+  <script src="script.js"></script>
+
+</body>
+
+</html>
